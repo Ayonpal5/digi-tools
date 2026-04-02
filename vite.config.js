@@ -4,4 +4,22 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/digi-tools/",
   plugins: [react()],
+  build: {
+    outDir: "docs",
+    rollupOptions: {
+      output: {
+        entryFileNames: "assets/index.js",
+        chunkFileNames: "assets/[name].js",
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+            return "assets/index.css";
+          }
+          if (assetInfo.name) {
+            return "assets/[name][extname]";
+          }
+          return "assets/[name].[extname]";
+        },
+      },
+    },
+  },
 });
