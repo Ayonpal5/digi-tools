@@ -1,1 +1,23 @@
-{"name":"digi-tools","private":true,"type":"module","version":"0.0.0","scripts":{"dev":"vite","build":"vite build"},"dependencies":{"react":"^18.2.0","react-dom":"^18.2.0","react-toastify":"^9.1.3"},"devDependencies":{"@vitejs/plugin-react":"^5.2.0","autoprefixer":"^10.4.0","postcss":"^8.4.0","tailwindcss":"^3.4.0","vite":"^5.0.0"}}
+{
+  "name": "digi-tools",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-toastify": "^9.1.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.2.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^3.4.0",
+    "vite": "^5.0.0"
+  }
+}
