@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import heroImage from "../assets/hero.png";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../assets/vite.svg";
 
 const productsData = [
   {
@@ -10,6 +13,7 @@ const productsData = [
     price: 19,
     period: "monthly",
     tag: "Popular",
+    image: reactLogo,
     features: ["100+ templates", "SEO optimized", "Export PDF"],
     icon: "✍️",
   },
@@ -20,6 +24,7 @@ const productsData = [
     price: 29,
     period: "one-time",
     tag: "New",
+    image: viteLogo,
     features: ["Figma", "Icons", "Components"],
     icon: "🎨",
   },
@@ -30,6 +35,7 @@ const productsData = [
     price: 15,
     period: "monthly",
     tag: "Best",
+    image: heroImage,
     features: ["Keyword", "Audit", "Reports"],
     icon: "🚀",
   },
@@ -40,6 +46,7 @@ const productsData = [
     price: 10,
     period: "one-time",
     tag: "Popular",
+    image: reactLogo,
     features: ["Templates", "Download", "ATS"],
     icon: "📄",
   },
@@ -50,6 +57,7 @@ const productsData = [
     price: 25,
     period: "monthly",
     tag: "New",
+    image: viteLogo,
     features: ["Ads", "Email", "Analytics"],
     icon: "📢",
   },
@@ -60,6 +68,7 @@ const productsData = [
     price: 12,
     period: "one-time",
     tag: "Best",
+    image: heroImage,
     features: ["JS", "React", "CSS"],
     icon: "💻",
   },
@@ -102,9 +111,17 @@ export default function App() {
           <button className="bg-white text-purple-600 px-6 py-2 rounded mr-2">
             Get Started
           </button>
-          <button className="border px-6 py-2 rounded">Learn More</button>
+          <button className="border border-white px-6 py-2 rounded">
+            Learn More
+          </button>
         </div>
-        <div className="text-6xl text-center">💡</div>
+        <div className="flex justify-center">
+          <img
+            src={heroImage}
+            alt="DigiTools hero"
+            className="max-h-80 rounded-[32px] shadow-2xl border border-white/20"
+          />
+        </div>
       </div>
       <div className="grid grid-cols-3 text-center bg-purple-600 text-white py-6">
         <div>
@@ -144,15 +161,24 @@ export default function App() {
               key={p.id}
               className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
             >
-              <div className="flex justify-between">
-                <h2 className="font-bold">
-                  {p.icon} {p.name}
-                </h2>
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      className="h-14 w-14 rounded-2xl bg-slate-100 p-2"
+                    />
+                  ) : null}
+                  <h2 className="font-bold text-lg">
+                    {p.icon} {p.name}
+                  </h2>
+                </div>
                 <span className="text-xs bg-purple-100 px-2 rounded">
                   {p.tag}
                 </span>
               </div>
-              <p className="text-sm text-gray-600">{p.description}</p>
+              <p className="text-sm text-gray-600 mt-4">{p.description}</p>
               <p className="font-bold mt-2">
                 ${p.price} / {p.period}
               </p>
